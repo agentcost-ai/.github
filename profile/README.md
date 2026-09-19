@@ -4,7 +4,7 @@
 
 [AgentCost](https://agentcost.tech) is an open-source observability platform for LLM-powered applications. It automatically tracks every LLM call your AI agents make, calculates real-time costs, and provides actionable insights to reduce your AI infrastructure spending.
 
-**[agentcost.tech](https://agentcost.tech)** · [Live demo, no signup](https://agentcost.tech/demo) · [Docs](https://agentcost.tech/docs/sdk) · [PyPI](https://pypi.org/project/agentcost/)
+**[agentcost.tech](https://agentcost.tech)** · [Live demo, no signup](https://agentcost.tech/demo) · [Docs](https://agentcost.tech/docs/sdk) · [PyPI](https://pypi.org/project/agentcost/) · [Project overview](https://github.com/agentcost-ai/agentcost)
 
 ## The Problem
 
@@ -113,6 +113,7 @@ AgentCost is not a monorepo — each component has its own repository:
 
 | Repository | What it is |
 | ---------- | ---------- |
+| [agentcost](https://github.com/agentcost-ai/agentcost) | Project overview — start here |
 | [agentcost-sdk](https://github.com/agentcost-ai/agentcost-sdk) | Python SDK, published to PyPI as `agentcost` |
 | [agentcost-backend](https://github.com/agentcost-ai/agentcost-backend) | FastAPI backend — event ingestion, analytics, auth |
 | [agentcost-dashboard](https://github.com/agentcost-ai/agentcost-dashboard) | Next.js dashboard and marketing site |
