@@ -4,7 +4,7 @@
 
 [AgentCost](https://agentcost.tech) is an open-source observability platform for LLM-powered applications. It automatically tracks every LLM call your AI agents make, calculates real-time costs, and provides actionable insights to reduce your AI infrastructure spending.
 
-**[agentcost.tech](https://agentcost.tech)** · [Live demo, no signup](https://agentcost.tech/demo) · [Docs](https://agentcost.tech/docs/sdk) · [PyPI](https://pypi.org/project/agentcost/) · [Project overview](https://github.com/agentcost-ai/agentcost)
+**[agentcost.tech](https://agentcost.tech)** · [Live demo, no signup](https://agentcost.tech/demo) · [Docs](https://agentcost.tech/docs/sdk) · [PyPI](https://pypi.org/project/agentcost/) · [npm](https://www.npmjs.com/package/@agentcost/sdk) · [Project overview](https://github.com/agentcost-ai/agentcost)
 
 ## The Problem
 
@@ -19,6 +19,7 @@ AgentCost solves this with zero code changes.
 ## Features
 
 - Zero-Friction Integration: Add 2 lines of code - your existing OpenAI, Anthropic, Gemini, and LangChain code works unchanged
+- Python and TypeScript: `pip install agentcost` or `npm install @agentcost/sdk` (OpenAI, Anthropic, Google Gen AI, LangChain.js, Vercel AI SDK)
 - Real-Time Tracking: See every LLM call, token count, cost, and latency
 - Multi-Agent Support: Track costs per agent in your multi-agent systems
 - User Management: Secure user authentication and project-based access control
@@ -35,7 +36,7 @@ AgentCost solves this with zero code changes.
 ```
 ┌─────────────────────┐     ┌─────────────────────┐     ┌─────────────────────┐
 │   Your AI           │     │   AgentCost SDK     │     │  AgentCost Backend  │
-│   Application       │───▶│  (Python Package)   │────▶│    (FastAPI)        │
+│   Application       │───▶│ (Python/TypeScript) │────▶│    (FastAPI)        │
 │                     │     │                     │     │                     │
 │  - OpenAI           │     │  - Monkey patching  │     │  - Event ingestion  │
 │  - Anthropic        │     │  - Token counting   │     │  - Analytics API    │
@@ -103,6 +104,22 @@ llm = ChatOpenAI(model="gpt-4")
 response = llm.invoke("Hello, world!") # ← Automatically tracked!
 ```
 
+### TypeScript / JavaScript
+
+```bash
+npm install @agentcost/sdk
+```
+
+```ts
+import OpenAI from "openai";
+import * as agentcost from "@agentcost/sdk";
+
+agentcost.init({ apiKey: "your_api_key", projectId: "your-project-uuid" });
+const client = agentcost.instrumentOpenAI(new OpenAI()); // ← calls through this client are tracked
+```
+
+Guide: [agentcost.tech/docs/typescript](https://agentcost.tech/docs/typescript)
+
 ### 3. View Your Analytics
 
 Start the backend and dashboard, then visit `http://localhost:3000` to see your costs.
@@ -115,6 +132,7 @@ AgentCost is not a monorepo — each component has its own repository:
 | ---------- | ---------- |
 | [agentcost](https://github.com/agentcost-ai/agentcost) | Project overview — start here |
 | [agentcost-sdk](https://github.com/agentcost-ai/agentcost-sdk) | Python SDK, published to PyPI as `agentcost` |
+| [agentcost-js](https://github.com/agentcost-ai/agentcost-js) | TypeScript / JavaScript SDK, published to npm as `@agentcost/sdk` |
 | [agentcost-backend](https://github.com/agentcost-ai/agentcost-backend) | FastAPI backend — event ingestion, analytics, auth |
 | [agentcost-dashboard](https://github.com/agentcost-ai/agentcost-dashboard) | Next.js dashboard and marketing site |
 | [agentcost-admin](https://github.com/agentcost-ai/agentcost-admin) | Admin platform |
